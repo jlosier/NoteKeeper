@@ -18,6 +18,19 @@ import android.widget.Spinner;
 
 import java.util.List;
 
+/*
+    Notes:
+        - views are the basic UI building blocks
+        - one type of view are layouts which handle positioning behavior
+        - activity/layout relationship
+            - no implicit relationship exists - must load layout yourself
+                - use setContentView
+            - must request layout View references
+                - use findByViewId
+        - R class provides important constants and is how you access your views and layouts
+
+ */
+
 public class NoteActivity extends AppCompatActivity {
 
     @Override
