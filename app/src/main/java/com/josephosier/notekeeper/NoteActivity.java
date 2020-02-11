@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.josephosier.notekeeper.data.CourseInfo;
+import com.josephosier.notekeeper.data.DataManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,7 +13,10 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
+import java.util.List;
 
 public class NoteActivity extends AppCompatActivity {
 
@@ -27,6 +32,18 @@ public class NoteActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Spinner spinnerCourses = findViewById(R.id.spinner_courses);
+
+        List<CourseInfo> courses = DataManager.getInstance().getCourses();
+
+        // arguments are stating what you want displayed (arg[2]) and how you want it displayed (arg[1])
+        ArrayAdapter<CourseInfo> adapterCourses = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, courses);
+
+        // set the layout for the spinner's drop down list
+        adapterCourses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // finally, set the adapter to the spinner
+        spinnerCourses.setAdapter(adapterCourses);
+
     }
 
     @Override
