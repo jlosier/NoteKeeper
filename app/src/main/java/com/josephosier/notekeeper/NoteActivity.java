@@ -28,6 +28,7 @@ import java.util.List;
             - must request layout View references
                 - use findByViewId
         - R class provides important constants and is how you access your views and layouts
+        - Intents are what start/create your activities
 
  */
 
